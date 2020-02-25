@@ -31,14 +31,15 @@ class App extends Component {
       }
       this.win(this.state.winner);
     }
-    if (this.state.num === 8) {
-      this.setState({ winner: "No one ! It's A Tie", annouce: true, num: 8 });
-    }
-    /* if (this.state.num < 8) {
+    if (this.state.num === 9) {
       this.win(this.state.winner);
-    } else {
-      this.setState({ winner: "No one ! It's A Tie", annouce: true, num: 8 });
-    }*/
+      this.setState({
+        winner: "No one ! It's A Tie",
+        annouce: true,
+        num: 9
+      });
+    }
+    this.win(this.state.winner);
   };
   win = e => {
     const line = [
@@ -67,7 +68,13 @@ class App extends Component {
             winner: e,
             num: 0
           });
-        }
+        } /*else {
+          this.setState({
+            winner: "No one ! It's A Tie",
+            annouce: true,
+            num: 9
+          });
+        }*/
       }
     }
   };
