@@ -11,35 +11,37 @@ class App extends Component {
   };
   add = e => {
     const newBoard = [...this.state.board];
+    let n;
     if (newBoard[e] === "") {
       if (this.state.currentPlayer === 1) {
         newBoard[e] = "o";
+        n = this.state.num + 1;
         this.setState({
           currentPlayer: 2,
           board: newBoard,
-          winner: "Player 1",
-          num: this.state.num + 1
+          winner: "Player 2",
+          num: n
         });
       } else if (this.state.currentPlayer === 2) {
         newBoard[e] = "x";
+        n = this.state.num + 1;
         this.setState({
           currentPlayer: 1,
           board: newBoard,
-          winner: "Player 2",
-          num: this.state.num + 1
+          winner: "Player 1",
+          num: n
         });
       }
-      this.win(this.state.winner);
     }
-    if (this.state.num === 9) {
-      this.win(this.state.winner);
+    if (n === 9) {
+      this.win(newBoard);
       this.setState({
         winner: "No one ! It's A Tie",
         annouce: true,
         num: 9
       });
     }
-    this.win(this.state.winner);
+    this.win(newBoard);
   };
   win = e => {
     const line = [
@@ -56,25 +58,15 @@ class App extends Component {
       const a = line[index][0];
       const b = line[index][1];
       const c = line[index][2];
-      if (this.state.board[a] !== "") {
-        if (
-          this.state.board[a] === this.state.board[b] &&
-          this.state.board[a] === this.state.board[c]
-        ) {
-          const frozeBoard = [...this.state.board];
+      if (e[a] !== "") {
+        if (e[a] === e[b] && e[a] === e[c]) {
           this.setState({
-            board: frozeBoard,
+            board: e,
             annouce: true,
-            winner: e,
+            winner: this.state.winner,
             num: 0
           });
-        } /*else {
-          this.setState({
-            winner: "No one ! It's A Tie",
-            annouce: true,
-            num: 9
-          });
-        }*/
+        }
       }
     }
   };
@@ -108,6 +100,7 @@ class App extends Component {
               {x}
             </div>
           ))}
+          <p className="shield" style={up}></p>
         </div>
         <div className="btn" onClick={this.restart}>
           重新開始
