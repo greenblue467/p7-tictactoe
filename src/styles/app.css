@@ -1,0 +1,121 @@
+.game {
+  text-align: center;
+  overflow: hidden;
+}
+
+.game h2 {
+  color: white;
+  font-size: 2rem;
+}
+
+.game .text {
+  position: relative;
+}
+
+.game .text .annouce {
+  width: 300px;
+  position: absolute;
+  top: 3.2rem;
+  left: calc(50% - 150px);
+  font-size: 1.2rem;
+  display: none;
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
+  -webkit-animation: effect 1s infinite, effect2 1s;
+          animation: effect 1s infinite, effect2 1s;
+}
+
+@-webkit-keyframes effect {
+  50% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+}
+
+@keyframes effect {
+  50% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+}
+
+@-webkit-keyframes effect2 {
+  0% {
+    -webkit-transform: scale(50);
+            transform: scale(50);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes effect2 {
+  0% {
+    -webkit-transform: scale(50);
+            transform: scale(50);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.game .box {
+  width: 304px;
+  height: 304px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+  margin: 4rem auto;
+  margin-bottom: 2rem;
+}
+
+.game .box div {
+  width: 100px;
+  height: 100px;
+  font-size: 6rem;
+  font-weight: 100;
+  line-height: 80px;
+  cursor: pointer;
+}
+
+.game .box div:nth-child(4) {
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.game .box div:nth-child(5) {
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.game .box div:nth-child(6) {
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.game .box div:nth-child(2), .game .box div:nth-child(5), .game .box div:nth-child(8) {
+  border-right: 2px solid white;
+  border-left: 2px solid white;
+}
+
+.game .box div:hover {
+  background-color: #ffbf1c;
+}
+
+.game .btn {
+  font-size: 1.2rem;
+  padding: 1rem;
+  cursor: pointer;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.game .btn:hover {
+  font-size: 1.5rem;
+}
+/*# sourceMappingURL=app.css.map */

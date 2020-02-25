@@ -1,0 +1,76 @@
+.game {
+  text-align: center;
+  overflow: hidden;
+  h2 {
+    color: white;
+    font-size: 2rem;
+  }
+  .text {
+    position: relative;
+    .annouce {
+      width: 300px;
+      position: absolute;
+      top: 3.2rem;
+      left: calc(50% - 150px);
+      font-size: 1.2rem;
+      display: none;
+      transform: rotate(5deg);
+      animation: effect 1s infinite, effect2 1s;
+    }
+    @keyframes effect {
+      50% {
+        transform: rotate(-5deg);
+      }
+    }
+    @keyframes effect2 {
+      0% {
+        transform: scale(50);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  }
+  .box {
+    width: 304px;
+    height: 304px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin: 4rem auto;
+    margin-bottom: 2rem;
+    div {
+      width: 100px;
+      height: 100px;
+      font-size: 6rem;
+      font-weight: 100;
+      line-height: 80px;
+      //color: rgb(131, 59, 26);
+      cursor: pointer;
+      @for $var from 4 to 7 {
+        &:nth-child(#{$var}) {
+          border-top: 2px solid white;
+          border-bottom: 2px solid white;
+        }
+      }
+      &:nth-child(2),
+      &:nth-child(5),
+      &:nth-child(8) {
+        border-right: 2px solid white;
+        border-left: 2px solid white;
+      }
+      &:hover {
+        background-color: rgb(255, 191, 28);
+      }
+    }
+  }
+  .btn {
+    font-size: 1.2rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 1s;
+    &:hover {
+      font-size: 1.5rem;
+    }
+  }
+}
